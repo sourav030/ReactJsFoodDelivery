@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const PlaceOrder = () => {
   const navigate=useNavigate()
   const { getTotalCartAmount } = useContext(StoreContext)
+  const finalTotal=getTotalCartAmount()+2;
   return (
     <form className='place-order'>
       <div className="place-order-left">
@@ -42,7 +43,7 @@ const PlaceOrder = () => {
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${getTotalCartAmount()==0?0:getTotalCartAmount()+2}</b>
+              <b>${getTotalCartAmount()==0?0:finalTotal}</b>
             </div>
           </div>
           <button onClick={()=>navigate('/')}>Proceed To Payment</button>
